@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Ludum Dare 30 - Connected Worlds</title>
+
+	<script src="js/lib/phaser.js"></script>
+	<script src="js/lib/phaser-state-transition.js"></script>
+
+	<script src="js/states/init.js"></script>
+	<script src="js/states/preloader.js"></script>
+	<script src="js/states/mainmenu.js"></script>
+	<script src="js/states/world1.js"></script>
+	<script src="js/states/world2.js"></script>
+	<script src="js/states/world3.js"></script>
+	<script src="js/states/world4.js"></script>
+	<script src="js/states/gameover.js"></script>
+
+	<style type="text/css">
+
+		body {
+			background: url('bg.png');
+			font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+		}
+
+		#gameBox {
+			display: inline-block;
+			border: 2px solid black;
+		}
+
+		#tutorial {
+			margin: 4px;
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+<div id="gameBox"></div>
+<div id="tutorial">
+	<span style="font-size:1.5em">Controls</span><br>
+	<b>World 1:</b> WASD to move<br>
+	<b>World 2:</b> Click to grow roots<br>
+	<b>World 3:</b> AD to move, W jump, SPACE eat<br>
+	<b>World 4:</b> Click to shoot
+</div>
+
+<script>
+
+window.onload = function() {
+
+	var game = new Phaser.Game(720, 600, Phaser.AUTO, 'gameBox');
+
+	game.state.add('Init', LD30.Init);
+	game.state.add('Preloader', LD30.Preloader);
+	game.state.add('MainMenu', LD30.MainMenu);
+	game.state.add('World1', LD30.World1);
+	game.state.add('World2', LD30.World2);
+	game.state.add('World3', LD30.World3);
+	game.state.add('World4', LD30.World4);
+	game.state.add('GameOver', LD30.GameOver);
+
+	game.state.start('Init');
+
+}
+
+</script>
+
+</body>
+
+
+
+</html>
